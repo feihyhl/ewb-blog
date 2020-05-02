@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/image/favicon.ico" type="image/ico" />
+
+    <title>EBW Blog | </title>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/nprogress.css" rel="stylesheet">
+    <link href="/iCheck/skins/flat/green.css" rel="stylesheet">
+    <link href="/customers/css/custom.min.css" rel="stylesheet">
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+                </div>
+
+                <div class="clearfix"></div>
+                <!-- menu html -->
+                <#include "common/left-menu.html">
+            </div>
+        </div>
+        <!-- top navigation -->
+        <#include "common/top.html">
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>文章列表 <small>根据文章名查询</small></h3>
+                    </div>
+
+                    <div class="title_right">
+                        <div class="col-md-5 col-sm-5   form-group pull-right top_search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search for...">
+                                <span class="input-group-btn">
+                                  <button class="btn btn-default" type="button">Go!</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="row" style="display: block;">
+                    <div class="col-md-12 col-sm-12  ">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Table design <small>Custom design</small></h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Settings 1</a>
+                                            <a class="dropdown-item" href="#">Settings 2</a>
+                                        </div>
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="x_content">
+
+                                <p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p>
+
+                                <div class="table-responsive">
+                                    <table class="table table-striped jambo_table bulk_action">
+                                        <thead>
+                                        <tr class="headings">
+                                            <th>
+                                                <input type="checkbox" id="check-all" class="flat">
+                                            </th>
+                                            <th class="column-title">ID</th>
+                                            <th class="column-title">日期</th>
+                                            <th class="column-title">名称</th>
+                                            <th class="column-title no-link last"><span class="nobr">操作</span>
+                                            </th>
+                                            <th class="bulk-actions" colspan="4">
+                                                <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                            </th>
+                                        </tr>
+                                        </thead>
+
+                                        <tbody>
+                                        <#list cont as val>
+                                        <#assign idx = val_index % 2>
+                                        <#if idx == 0>
+                                            <tr class="odd pointer">
+                                        <#else>
+                                            <tr class="even pointer">
+                                        </#if>
+                                                <td class="a-center ">
+                                                    <input type="checkbox" class="flat" name="table_records">
+                                                </td>
+                                                <td class=" ">${val.id}</td>
+                                                <td class=" ">${val.date?string('yyyy-MM-dd hh:mm:ss')}</td>
+                                                <td class=" ">${val.name}</td>
+                                                <td class=" last"><a href="/hello/edit">View</a>
+                                                </td>
+                                            </tr>
+                                        </#list>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- footer -->
+        <#include "common/footer.html">
+    </div>
+</div>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/fastclick.js"></script>
+    <script src="/js/nprogress.js"></script>
+    <script src="/iCheck/icheck.min.js"></script>
+    <script src="/customers/js/custom.min.js"></script>
+</body>
+</html>
